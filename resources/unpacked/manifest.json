@@ -1,0 +1,39 @@
+{
+  "name": "edn-formatter",
+  "version": "0.1.0",
+  "browser_action": {
+    "default_title": "Show the formatter",
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css" : ["codemirror.css"],
+      "js": [
+        "compiled/content_script/chromex-sample.js",
+        "content-script.js",
+        "codemirror.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "permissions": [
+    "storage"
+  ],
+  "manifest_version": 2
+}
